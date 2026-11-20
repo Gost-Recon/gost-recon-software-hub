@@ -33,3 +33,15 @@ const SOFTWARE = [
     downloadUrl: ""
   }
 ];
+
+/* Add real author publications here; leave url empty until a public link is available. */
+const PUBLISHED_WORK = [
+  {
+    title: "Publication slot",
+    type: "Geopolitics / Strategic Studies",
+    description: "Reserved for an upcoming article, analysis, report, or publication. Add the real title, details, date, and public link here.",
+    date: "Coming soon",
+    status: "Placeholder",
+    url: ""
+  }
+];

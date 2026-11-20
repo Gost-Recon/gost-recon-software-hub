@@ -23,3 +23,24 @@ filters.forEach((filter) => filter.addEventListener("click", () => {
 }));
 
 render();
+
+const publishedGrid = document.querySelector("#published-grid");
+
+if (publishedGrid) {
+  if (PUBLISHED_WORK.length === 0) {
+    publishedGrid.innerHTML = `<article class="published-empty"><span class="published-number">Author archive</span><h3>No publications added yet.</h3><p>Geopolitics and strategic studies work will appear here when it is ready to share.</p></article>`;
+  } else {
+    publishedGrid.innerHTML = PUBLISHED_WORK.map((work, index) => {
+      const action = work.url
+        ? `<a class="published-link" href="${work.url}" target="_blank" rel="noreferrer">Read publication <span aria-hidden="true">↗</span></a>`
+        : `<span class="published-link published-link-muted">Link to be added</span>`;
+      return `<article class="published-card">
+        <div class="published-card-top"><span class="published-number">${String(index + 1).padStart(2, "0")}</span><span class="published-status">${work.status}</span></div>
+        <p class="published-type">${work.type}</p>
+        <h3>${work.title}</h3>
+        <p class="published-description">${work.description}</p>
+        <div class="published-card-foot"><time>${work.date}</time>${action}</div>
+      </article>`;
+    }).join("");
+  }
+}
